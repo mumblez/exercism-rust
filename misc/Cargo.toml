@@ -1,0 +1,6 @@
+[package]
+name = "misc"
+version = "0.1.0"
+authors = ["Yusuf Tran <yusuf.tran@karhoo.com>"]
+
+[dependencies]
