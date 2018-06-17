@@ -7,7 +7,7 @@ pub fn is_armstrong_number(num: u32) -> bool {
         temp_num /= 10;
     }
 
-    let power = units.len();
+    let power = units.len() as u32;
 
-    units.iter().map(|x| x.pow(power as u32)).sum::<u32>() == num
+    units.iter().fold(0, |total, x| total + x.pow(power)) == num
 }
