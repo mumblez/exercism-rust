@@ -18,14 +18,14 @@ impl Clock {
         (hour, minute)
     }
     pub fn new(hours: i32, minutes: i32) -> Clock {
-        let (hour, minute) = Clock::process(0, 0, hours, minutes);
+        let (hour, minute) = Self::process(0, 0, hours, minutes);
         Clock {
             minute: minute,
             hour: hour,
         }
     }
     pub fn add_minutes(mut self, minutes: i32) -> Clock {
-        let (hour, minute) = Clock::process(self.hour, self.minute, 0, minutes);
+        let (hour, minute) = Self::process(self.hour, self.minute, 0, minutes);
         self.minute = minute;
         self.hour = hour;
         self
