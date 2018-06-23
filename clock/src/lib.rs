@@ -5,13 +5,11 @@ pub struct Clock {
     hour: i32,
     minute: i32,
 }
-
 impl fmt::Display for Clock {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "{:02}:{:02}", self.hour, self.minute)
     }
 }
-
 impl Clock {
     fn process(start_hour: i32, start_minute: i32, hours: i32, minutes: i32) -> (i32, i32) {
         let hour_calc = ((start_minute as f32 + minutes as f32) / 60 as f32).floor();
@@ -26,11 +24,10 @@ impl Clock {
             hour: hour,
         }
     }
-
-    pub fn add_minutes(&mut self, minutes: i32) -> Clock {
+    pub fn add_minutes(mut self, minutes: i32) -> Clock {
         let (hour, minute) = Clock::process(self.hour, self.minute, 0, minutes);
         self.minute = minute;
         self.hour = hour;
-        self.clone()
+        self
     }
 }
